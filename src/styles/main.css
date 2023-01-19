@@ -1,0 +1,196 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+}
+
+.nav{
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  line-height: 24px;
+  background-color: white;
+}
+
+.nav__list{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 100%;
+  padding-right: 20px;
+  margin: 0;
+  list-style-type: none;
+  text-align: right;
+}
+.nav__title{
+  padding: 24px;
+}
+.nav__item{
+  padding: 24px 0px;
+}
+.nav__item a{
+  text-decoration: none;
+  color: black;
+}
+#hamburger{
+  font-size: 24px;
+  text-align: right;
+  padding: 25px;
+  text-decoration: none;
+  display: none;
+}
+.nav__list.open{
+  transform: translate(0,50px);
+}
+
+/* Jumbotron */
+
+.hero{
+  display: flex;
+  align-items: center;
+  min-height: 380px;
+  width: 100%;
+  text-align: center;
+  background-image: url("../public/images/heros/hero-image_2.jpg");
+  background-position: top left;
+  background-color: green;
+  background-repeat: no-repeat;
+}
+
+.hero__inner{
+  margin: 0 auto;
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+}
+.hero__title::after{
+  content: '';
+  display: block;
+  border-bottom: 2px solid #E0DECA;
+}
+.hero__tagline{
+  font-weight: 500;
+  color: white;
+}
+.hero__selected{
+  background-color: rgba(200, 92, 92, 0.8);
+  font-style: italic;
+}
+.hero__underline{
+  text-decoration: underline;
+  font-family: 'Lobster';
+  font-size: 28px;
+  color: #ff6868;
+}
+
+/* content */
+
+.content{
+  padding: 24px
+}
+
+/* article */
+.content__title{
+  text-align: center;
+  width: 100%;
+}
+
+/* posts */
+
+.posts{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  margin: 32px auto auto -32px;
+  text-align: left;
+}
+
+/* post-item */
+
+.posts-column-item{
+  margin: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+/* post column style */
+.post-column-thumbnail{
+  background-image: url(https://restaurant-api.dicoding.dev/images/medium/41);
+  width: 100%;
+  min-height: 200px;
+  padding: 5px;
+  background-position: center;
+}
+.post-column-thumbnail__rating{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0rem;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 3px 5px;
+  border-radius: 100px;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.post-column-thumbnail__rating-value{
+  text-align: center;
+}
+.post-column-thumbnail__rating-icon{
+  width: 24px;
+}
+.post-column-content{
+  padding: 16px 32px 32px 32px;
+}
+.post-column-content__title{
+  font-size: 24px;
+  margin-top: 16px;
+  transition: 0.3s opacity;
+}
+.post-column-content__description{
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.5em;
+}
+.post-column-content__city{
+  margin-top: 16px;
+  font-size: 18px;
+  font-weight: 1000;
+  line-height: 1.5em;
+}
+
+/* post list style */
+
+.posts-list-item{
+  margin: 16px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 100%;
+  border-radius: 5px;
+  max-height: 380px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr 3fr);
+  gap: 5px;
+}
+
+
+.post-list-thumbnail{
+    max-width: 150px;
+}
+
+.post-list-content{
+  width: 100%;
+  padding: 5px;
+}
+.post-list-content__title{
+  padding-top: 5px;
+}
+.post-list-content__city{
+  padding-top: 5px;
+  font-weight: 800;
+}
