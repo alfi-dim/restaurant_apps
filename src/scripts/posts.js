@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  const renderPostsElement = (data, viewSetting) => {
+  const renderPostsElement = (data, viewSetting = 'column') => {
     // article element
     const articleElement = document.createElement('article');
     articleElement.setAttribute('class', `posts-${viewSetting}-item`);
@@ -28,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // post content element
     const postContentElement = document.createElement('div');
     postContentElement.setAttribute('class', `post-${viewSetting}-content`);
+    let { description } = data;
 
     // thumbnail
     if (viewSetting === 'column') {
@@ -65,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       postContentElement.appendChild(postContentRatingELement);
 
       if (data.description.length > 120) {
-        data.description = `${data.description.slice(0, 119)} <span id="dots-${data.id}">...</span><span id="full-${data.id}" style="display: none;">${data.description.slice(120)}</span><button id="read-${data.id}" class="readmore">readmore</button>`;
+        description = `${data.description.slice(0, 119)} <span id="dots-${data.id}">...</span><span id="full-${data.id}" style="display: none;">${data.description.slice(120)}</span><button id="read-${data.id}" class="readmore">readmore</button>`;
       }
     }
 
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const postContentDescElement = document.createElement('p');
     postContentDescElement.setAttribute('class', `post-${viewSetting}-content__description`);
-    postContentDescElement.innerHTML = data.description;
+    postContentDescElement.innerHTML = description;
 
     const postContentCityElement = document.createElement('p');
     postContentCityElement.setAttribute('class', `post-${viewSetting}-content__city`);
@@ -122,5 +123,5 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  document.dispatchEvent(new Event(RENDER_EVENT, { detail: 'column' }));
+  document.dispatchEvent(new Event(RENDER_EVENT, { detail: viewSetting }));
 });
