@@ -41,6 +41,7 @@
 @media screen and (min-width: 1000px) {
     .posts{
         grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
     }
     .hero__inner{
         font-size: 1.5em;
@@ -50,6 +51,9 @@
     }
     .hero__underline{
         font-size: 1.2em;
+    }
+    .posts-button{
+        display: none;
     }
 }
 
