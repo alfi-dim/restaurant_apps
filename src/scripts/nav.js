@@ -21,4 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     navList.classList.remove('open');
     event.stopPropagation();
   });
+
+  const skipContentElement = document.getElementById('skip-link');
+  const skipContent = () => {
+    const targetElement = skipContentElement.getAttribute('data-target');
+    window.scrollTo(0, document.getElementById(targetElement).offsetTop - 100);
+  };
+  ['click', 'keydown'].forEach((event) => {
+    skipContentElement.addEventListener(event, skipContent);
+  });
 });

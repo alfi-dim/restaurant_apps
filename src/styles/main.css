@@ -1,13 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 img {
   display: block;
+}
+
+#skip-link{
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  background-color: #CCD6A6;
+  border: 1px solid black;
+  cursor: pointer;
+  top: -50px;
+  left: 10px;
+  z-index: 100;
+  color: black;
+  padding: 15px;
+  text-align: center;
+}
+#skip-link:focus{
+  top: 10px;
 }
 
 .nav{
@@ -17,6 +37,7 @@ img {
   grid-template-columns: repeat(2, 1fr);
   line-height: 24px;
   background-color: white;
+  z-index: 99;
 }
 
 .nav__list{
@@ -86,15 +107,60 @@ img {
   text-decoration: underline;
   font-family: 'Lobster';
   font-size: 28px;
-  color: #ff6868;
+  color: #fff768;
 }
 
 /* content */
 
 .content{
-  padding: 24px
+  padding: 24px;
 }
 
+/* headline */
+
+.content__headline{
+  width: 100%;
+  padding: 24px;
+  background-color: #FDEEDC;
+}
+.headline__tagline{
+  text-align: center;
+  padding: 10px;
+}
+.headline-tagline__title{
+  font-size: 2.5em;
+  font-family: 'Crimson Text', serif;
+}
+.headline-tagline__title::after{
+  content: '';
+  background-image: url(../public/images/icons/shooting-star.svg);
+  transform: scaleY(-1);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.headline-tagline__description{
+  font-size: 1.5em;
+  font-style: italic;
+}
+.headline__description{
+  font-size: 1.1em;
+}
+.headline-description__recommendation{
+  padding-top: 20px;
+  font-size: 0.7em;
+}
+#recommendation-button{
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 0.9em;
+  cursor: pointer;
+}
 /* data-view button */
 .posts-button{
   background-color: lightgray;
@@ -133,6 +199,7 @@ img {
 .content__title{
   text-align: center;
   width: 100%;
+  margin-top: 50px;
 }
 
 /* posts */
@@ -227,4 +294,91 @@ img {
 .post-list-content__city{
   padding-top: 5px;
   font-weight: 800;
+}
+
+.readmore-button{
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  color: blue;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+/* footer */
+
+footer{
+  background-color: #F1A661;
+  padding: 24px 24px 12px 24px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-height: 500px;
+  width: 100%;
+  color: white;
+}
+.footer__info{
+  padding: 5px;
+  font-size: 18px;
+}
+.footer-logo{
+  width: 120px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 100px;
+  margin: 0 auto;
+}
+.footer-info__address{
+  font-size: 14px;
+}
+.footer__tagline{
+  grid-column-start: 2;
+  grid-column-end: 4;
+  margin: 0 auto;
+}
+.footer-tagline__title{
+  font-family: 'Crimson Text', serif;
+  font-size: 1.3em;
+}
+.footer-tagline__star::after{
+  content: '';
+  background-image: url(../public/images/icons/shooting-star-white.svg);
+  transform: scaleY(-1);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.footer-tagline__about{
+  color: white;
+  text-decoration: none;
+}
+.footer-tagline__about:hover{
+  text-decoration: underline;
+}
+.footer-powerup__description{
+  padding-top: 5px;
+}
+.powerup-description__about{
+  font-size: 0.9em;
+  padding-top: 10px;
+}
+.powerup-description__dicoding{
+  color: white;
+  text-decoration: none;
+}
+.powerup-description__dicoding:hover{
+  text-decoration: underline;
+}
+.footer__copyright{
+  grid-column-start: 1;
+  grid-column-end: 5;
+  text-align: center;
+}
+.footer__copyright::before{
+  border-top: 1px solid lightgray;
+  content: '';
+  display: block;
+  padding-bottom: 5px;
 }

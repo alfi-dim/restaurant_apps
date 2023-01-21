@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       postContentElement.appendChild(postContentRatingELement);
 
       if (data.description.length > 120) {
-        description = `${data.description.slice(0, 119)} <span id="dots-${data.id}">...</span><span id="full-${data.id}" style="display: none;">${data.description.slice(120)}</span><button id="read-${data.id}" class="readmore">readmore</button>`;
+        description = `${data.description.slice(0, 119)} <span id="dots-${data.id}">...</span><span id="full-${data.id}" style="display: none;">${data.description.slice(120)}</span><button id="read-${data.id}" class="readmore-button">Read more</button>`;
       }
     }
 
@@ -111,10 +111,11 @@ document.addEventListener('DOMContentLoaded', () => {
             allDotsElement.forEach((e) => {
               e.style.display = 'inline';
             });
-
+            buttonElement.innerText = 'Read less';
             fullDescElement.style.display = 'inline';
             dotsElement.style.display = 'none';
           } else {
+            buttonElement.innerText = 'Read more';
             fullDescElement.style.display = 'none';
             dotsElement.style.display = 'inline';
           }

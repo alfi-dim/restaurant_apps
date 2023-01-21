@@ -6,6 +6,7 @@
   <title>Restaurant Apps Starter Project</title>
 </head>
 <body>
+  <a id="skip-link" data-target="main" tabindex="0">Skip to Content</a>
   <nav id="drawer" class="nav">
     <p class="nav__title">Restaurant Apps</p>
     <a href="#" id="hamburger">☰</a>
@@ -21,8 +22,19 @@
       <p class="hero__tagline">Let's enjoy the <span class="hero__underline">wonderful food</span> from our selected <span class="hero__selected">best restaurant</span></p>
     </div>
   </div>
-  <main>
+  <main id="main">
     <section class="content">
+      <article class="content__headline">
+        <div class="headline__tagline">
+          <h2 class="headline-tagline__title">Discover. Eat. Give a Star!</h2>
+          <h3 class="headline-tagline__description">We live for the good food, We come for the good food, We are here for the good restaurants!</h3>
+        </div>
+        <div class="headline__description">
+          <p>We are formed from foodies who want to taste a good food, with our desire, we travel all over the country to visit the best restaurants</p>
+          <p>And now, we have made our list of the best restaurants for you, the foodies like us!</p>
+          <p class="headline-description__recommendation">Did you have recommendation? <button id="recommendation-button"> let's dig in! </button></p>
+        </div>
+      </article>
       <article class="content__title">
         <h2>List of Our Selection of the Best Restaurants</h2>
         <p>Our selection is based on our survey of the restaurants you voted for us</p>
@@ -45,5 +57,38 @@
       </div>
     </section>
   </main>
+  <footer>
+    <section class="footer__info">
+      <div class="footer-info__logo">
+        <img src="./images/logo/logo2.png" alt="Restaurant Apps Logo" class="footer-logo">
+      </div>
+      <div class="footer-info__description">
+        <p>Restaurant Apps</p>
+        <p class="footer-info__address">East Jakarta, DKI Jakarta Indonesia</p>
+      </div>
+    </section>
+    <section class="footer__tagline">
+      <div class="footer-tagline__title">
+       <h2>Discover.</h2>
+       <h2>Eat.</h2>
+       <h2 class="footer-tagline__star">Give a Star!</h2>
+      </div>
+      <a href="https://www.linkedin.com/in/dimasalfiansyah/" target="_blank" rel="noopener" class="footer-tagline__about">About us</a>
+    </section>
+    <section class="footer__powerup">
+      <div class="footer-powerup__title">
+        <p>This project brought to life by</p>
+      </div>
+      <div class="footer-powerup__description">
+        <img class="dicoding-logo" src="https://dicoding-web-img.sgp1.cdn.digitaloceanspaces.com/original/commons/certificate_logo.png" alt="Dicoding Logo">
+        <p class="powerup-description__about">learn more about <a href="https://www.dicoding.com/" target="_blank" rel="noopener" class="powerup-description__dicoding">dicoding.</a></p>
+      </div>
+    </section>
+    <section class="footer__copyright">
+      <div class="footer-copyright__title">
+        &copy; 2023 Dimas Alfiansyah
+      </div>
+    </section>
+  </footer>
 </body>
 </html>
