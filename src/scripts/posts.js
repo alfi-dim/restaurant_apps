@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
       postContentElement.appendChild(postContentRatingELement);
 
       if (data.description.length > 120) {
-        description = `${data.description.slice(0, 119)} <span id="dots-${data.id}">...</span><span id="full-${data.id}" style="display: none;">${data.description.slice(120)}</span><button id="read-${data.id}" class="readmore-button">Read more</button>`;
+        description = `${data.description.slice(0, 119)} <span id="dots-${data.id}">...</span><span id="full-${data.id}" style="display: none;">${data.description.slice(120)}</span><br><button id="read-${data.id}" class="readmore-button">Read more</button>`;
       }
     }
 
