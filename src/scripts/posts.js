@@ -1,6 +1,6 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-shadow */
-import data from '../DATA.json';
+const data = require('../DATA.json');
 
 document.addEventListener('DOMContentLoaded', () => {
   const postsElement = document.getElementById('posts');
@@ -124,5 +124,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  // eslint-disable-next-line no-promise-executor-return
+  const sleep = (timeout) => new Promise((resolve) => setTimeout(resolve, timeout));
+  let available = true;
+  window.addEventListener('resize', async () => {
+    if (available === true) {
+      if (window.innerWidth > 1000) {
+        document.dispatchEvent(new Event(RENDER_EVENT, { detail: 'column' }));
+        const columnButton = document.querySelector('[data-view="column"]');
+        const listButton = document.querySelector('[data-view="list"]');
+        if (listButton.classList.contains('active')) {
+          listButton.classList.remove('active');
+          columnButton.classList.add('active');
+        }
+        available = false;
+        await sleep(3000);
+        available = true;
+      }
+    }
+  });
   document.dispatchEvent(new Event(RENDER_EVENT, { detail: viewSetting }));
 });
