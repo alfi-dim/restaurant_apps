@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text&display=swap');
 
 *{
   margin: 0;
@@ -10,6 +11,24 @@ img {
   display: block;
 }
 
+#skip-link{
+  position: absolute;
+  width: 150px;
+  height: 50px;
+  background-color: #CCD6A6;
+  border: 1px solid black;
+  cursor: pointer;
+  top: -50px;
+  left: 10px;
+  z-index: 100;
+  color: black;
+  padding: 15px;
+  text-align: center;
+}
+#skip-link:focus{
+  top: 10px;
+}
+
 .nav{
   width: 100%;
   margin: 0 auto;
@@ -17,16 +36,19 @@ img {
   grid-template-columns: repeat(2, 1fr);
   line-height: 24px;
   background-color: white;
+  z-index: 99;
 }
 
 .nav__list{
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  width: 100%;
-  padding-right: 20px;
-  margin: 0;
+  grid-template-columns: repeat(1, 1fr);
+  position: absolute;
+  background-color: white;
+  transform: translate(500px, 50px);
+  transition: transform 0.3s ease-in-out;
   list-style-type: none;
-  text-align: right;
+  width: 100%;
+  padding-left: 25px;
 }
 .nav__title{
   padding: 24px;
@@ -43,7 +65,7 @@ img {
   text-align: right;
   padding: 25px;
   text-decoration: none;
-  display: none;
+  display: block;
 }
 .nav__list.open{
   transform: translate(0,50px);
@@ -58,8 +80,7 @@ img {
   width: 100%;
   text-align: center;
   background-image: url("../public/images/heros/hero-image_2.jpg");
-  background-position: top left;
-  background-color: green;
+  background-color: #F2DEBA;
   background-repeat: no-repeat;
 }
 
@@ -67,7 +88,7 @@ img {
   margin: 0 auto;
   color: white;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 0.8em;
 }
 .hero__title::after{
   content: '';
@@ -77,6 +98,7 @@ img {
 .hero__tagline{
   font-weight: 500;
   color: white;
+  font-size: 1.2em;
 }
 .hero__selected{
   background-color: rgba(200, 92, 92, 0.8);
@@ -85,20 +107,100 @@ img {
 .hero__underline{
   text-decoration: underline;
   font-family: 'Lobster';
-  font-size: 28px;
-  color: #ff6868;
+  font-size: 1.2em;
+  color: #fff768;
 }
 
 /* content */
 
 .content{
-  padding: 24px
+  padding: 24px;
 }
 
+/* headline */
+
+.content__headline{
+  width: 100%;
+  padding: 24px;
+  background-color: #FDEEDC;
+}
+.headline__tagline{
+  text-align: center;
+  padding: 10px;
+}
+.headline-tagline__title{
+  font-size: 2.5em;
+  font-family: 'Crimson Text', serif;
+}
+.headline-tagline__title::after{
+  content: '';
+  background-image: url(../public/images/icons/shooting-star.svg);
+  transform: scaleY(-1);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.headline-tagline__description{
+  font-size: 1.5em;
+  font-style: italic;
+}
+.headline__description{
+  font-size: 1.1em;
+}
+.headline-description__recommendation{
+  padding-top: 20px;
+  font-size: 0.7em;
+}
+#recommendation-button{
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  font-style: italic;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+/* data-view button */
+.posts-button{
+  background-color: lightgray;
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 5px;
+  margin: auto 0 auto auto;
+}
+#listButton{
+  background-image: url(../public/images/icons/list.svg);
+  background-size: contain;
+  min-width: 33px;
+  min-height: 33px;
+  background-color: #f1f1f1;
+  content: '';
+}
+#columnButton{
+  background-image: url(../public/images/icons/column.svg);
+  background-size: contain;
+  min-width: 33px;
+  min-height: 33px;
+  background-color: #f1f1f1;
+  content: '';
+}
+.data{
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 0.5em;
+}
+.active{
+  background-color: rgb(168, 168, 168) !important;
+  box-shadow: none;
+}
 /* article */
 .content__title{
   text-align: center;
   width: 100%;
+  margin-top: 50px;
 }
 
 /* posts */
@@ -180,7 +282,7 @@ img {
 
 
 .post-list-thumbnail{
-    max-width: 150px;
+    max-width: 120px;
 }
 
 .post-list-content{
@@ -189,8 +291,103 @@ img {
 }
 .post-list-content__title{
   padding-top: 5px;
+  font-size: 1em;
+}
+.post-list-content__rating{
+  font-size: 0.8em;
+}
+.post-list-content__description{
+  font-size: 0.6em;
 }
 .post-list-content__city{
   padding-top: 5px;
   font-weight: 800;
+  font-size: 0.8em;
+}
+
+.readmore-button{
+  background-color: transparent;
+  border: none;
+  text-decoration: underline;
+  color: blue;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+/* footer */
+
+footer{
+  background-color: #F1A661;
+  padding: 24px 24px 0 24px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  max-height: 500px;
+  width: 100%;
+  color: white;
+}
+footer section:nth-child(3){
+  padding-top: 5px;
+  border-top: 1px solid lightgray;
+}
+.footer__info{
+  padding: 5px;
+  font-size: 18px;
+}
+.footer-logo{
+  width: 120px;
+  background-color: white;
+  padding: 10px;
+  border-radius: 100px;
+  margin: 0;
+}
+.footer-info__address{
+  font-size: 14px;
+}
+.footer__tagline{
+  margin: 0;
+}
+.footer-tagline__title{
+  font-family: 'Crimson Text', serif;
+  font-size: 1.3em;
+}
+.footer-tagline__star::after{
+  content: '';
+  background-image: url(../public/images/icons/shooting-star-white.svg);
+  transform: scaleY(-1);
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+}
+.footer-tagline__about{
+  color: white;
+  text-decoration: none;
+}
+.footer-tagline__about:hover{
+  text-decoration: underline;
+}
+.footer-powerup__description{
+  padding-top: 5px;
+}
+.powerup-description__about{
+  font-size: 0.9em;
+  padding-top: 10px;
+}
+.powerup-description__dicoding{
+  color: white;
+  text-decoration: none;
+}
+.powerup-description__dicoding:hover{
+  text-decoration: underline;
+}
+.footer__copyright{
+  text-align: center;
+}
+.footer__copyright::before{
+  border-top: 1px solid white;
+  content: '';
+  display: block;
+  padding-bottom: 5px;
 }
