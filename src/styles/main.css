@@ -57,6 +57,9 @@ img {
   padding: 24px 0px;
 }
 .nav__item a{
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-block;
   text-decoration: none;
   color: black;
 }
@@ -159,8 +162,11 @@ img {
   border: none;
   text-decoration: underline;
   font-style: italic;
-  font-size: 0.9em;
+  font-size: 1em;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-block;
 }
 /* data-view button */
 .posts-button{
@@ -169,21 +175,21 @@ img {
   width: -moz-fit-content;
   width: fit-content;
   padding: 5px;
-  margin: auto 0 auto auto;
+  margin: 20px 0 auto auto;
 }
 #listButton{
   background-image: url(../public/images/icons/list.svg);
   background-size: contain;
-  min-width: 33px;
-  min-height: 33px;
+  min-width: 44px;
+  min-height: 44px;
   background-color: #f1f1f1;
   content: '';
 }
 #columnButton{
   background-image: url(../public/images/icons/column.svg);
   background-size: contain;
-  min-width: 33px;
-  min-height: 33px;
+  min-width: 44px;
+  min-height: 44px;
   background-color: #f1f1f1;
   content: '';
 }
@@ -208,7 +214,7 @@ img {
 .posts{
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  margin: 32px auto auto -32px;
+  margin: 0 auto auto -32px;
   text-align: left;
 }
 
@@ -312,6 +318,8 @@ img {
   color: blue;
   font-size: 0.9em;
   cursor: pointer;
+  min-width: 44px;
+  min-height: 44px;
 }
 
 /* footer */
@@ -321,7 +329,6 @@ footer{
   padding: 24px 24px 0 24px;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  max-height: 500px;
   width: 100%;
   color: white;
 }
@@ -364,6 +371,9 @@ footer section:nth-child(3){
 .footer-tagline__about{
   color: white;
   text-decoration: none;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-block;
 }
 .footer-tagline__about:hover{
   text-decoration: underline;
@@ -373,11 +383,13 @@ footer section:nth-child(3){
 }
 .powerup-description__about{
   font-size: 0.9em;
-  padding-top: 10px;
 }
 .powerup-description__dicoding{
   color: white;
   text-decoration: none;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-block;
 }
 .powerup-description__dicoding:hover{
   text-decoration: underline;
