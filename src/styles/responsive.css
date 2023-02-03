@@ -1,18 +1,25 @@
 @media screen and (min-width: 500px) {
-    .nav__list{
-        grid-template-columns: repeat(3, 1fr);
-        padding-right: 20px;
+    .app-bar {
+        grid-template-columns: 1fr auto;
+        padding: 8px 32px;
+    }
+    .app-bar .app-bar__navigation{
+        position: static;
+        width: 100%;
+    }
+    .app-bar .app-bar__navigation ul li {
+        display: inline-block;
+    }
+     
+    .app-bar .app-bar__navigation ul li a {
+        display: inline-block;
+        width: 120px;
+        text-align: center;
         margin: 0;
-        text-align: right;
-        transform: translate(0);
-        position: relative;
     }
-    #hamburger{
+    .app-bar .app-bar__hamburger {
         display: none;
-    }
-    .post-list-thumbnail{
-        max-width: 200px;
-    }
+      }
     .hero__inner{
         font-size: 1em;
     }
@@ -20,18 +27,6 @@
         font-size: 0.8em;
     }
     .hero__underline{
-        font-size: 1.2em;
-    }
-    .post-list-content__title{
-        font-size: 1.5em;
-    }
-    .post-list-content__rating{
-        font-size: 1.2em;
-    }
-    .post-list-content__description{
-        font-size: 1em;
-    }
-    .post-list-content__city{
         font-size: 1.2em;
     }
 }
@@ -44,22 +39,6 @@
         font-size: 1.1em;
     }
     .hero__underline{
-        font-size: 1.2em;
-    }
-
-    .post-list-thumbnail{
-        max-width: 200px;
-    }
-    .post-list-content__title{
-        font-size: 1.5em;
-    }
-    .post-list-content__rating{
-        font-size: 1.2em;
-    }
-    .post-list-content__description{
-        font-size: 1.2em;
-    }
-    .post-list-content__city{
         font-size: 1.2em;
     }
 
@@ -84,28 +63,7 @@
         border-top: none;
     }
 }
-@media screen and (min-width: 800px) {
-    .post-list-thumbnail{
-        max-width: 250px;
-    }
-    .post-list-content__title{
-        font-size: 1.6em;
-    }
-    .post-list-content__rating{
-        font-size: 1.3em;
-    }
-    .post-list-content__description{
-        font-size: 1.4em;
-    }
-    .post-list-content__city{
-        font-size: 1.3em;
-    }
-}
 @media screen and (min-width: 1000px) {
-    .posts{
-        grid-template-columns: repeat(3, 1fr);
-        gap: 15px;
-    }
     .hero__inner{
         font-size: 1.5em;
     }
