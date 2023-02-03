@@ -1,18 +1,25 @@
 import 'regenerator-runtime'; /* for async await transpile */
 import '../styles/main.css';
 import '../styles/responsive.css';
-import './nav';
-import './views/pages/restaurants';
-import './views/pages/restaurant-item';
+import './views/templates/restaurants';
+import './views/templates/restaurant-item';
+import './views/pages/home';
 import dataviewButtonInitiator from './utils/dataview-button-initiator';
+import App from './views/app';
 
-window.addEventListener('load', () => {
-  dataviewButtonInitiator.init({
-    button: document.querySelectorAll('.data'),
-  });
-  dataviewButtonInitiator._setActiveButtonByInitialConfig();
+const app = new App({
+  hamburgerButton: document.querySelector('#hamburger'),
+  drawer: document.querySelector('#drawer'),
+  content: document.querySelector('#content__item'),
+  dataviewButton: document.querySelectorAll('.data'),
 });
 
+window.addEventListener('load', () => {
+  app.renderPage();
+});
+window.addEventListener('hashchange', () => {
+  app.renderPage();
+});
 // eslint-disable-next-line no-promise-executor-return
 const sleep = (timeout) => new Promise((resolve) => setTimeout(resolve, timeout));
 let available = true;

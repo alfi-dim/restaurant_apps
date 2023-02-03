@@ -2,8 +2,6 @@
 import { LitElement, html, css } from 'lit';
 import dataviewConfig from '../../data/dataview-localStorage-config';
 
-const dataJson = require('../../data/DATA.json');
-
 class RestaurantsList extends LitElement {
   static properties = {
     data: { type: Object },
@@ -17,6 +15,9 @@ class RestaurantsList extends LitElement {
     margin: 0 auto auto -32px;
     text-align: left;
   }
+  .loading{
+    background-color: red
+  }
   @media screen and (min-width: 1000px) {
     :host{
         grid-template-columns: repeat(3, 1fr);
@@ -27,7 +28,6 @@ class RestaurantsList extends LitElement {
 
   constructor() {
     super();
-    this.data = dataJson;
     this.dataview = dataviewConfig.getConfig();
   }
 

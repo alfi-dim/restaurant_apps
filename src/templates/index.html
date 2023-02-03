@@ -8,19 +8,19 @@
 <body>
   <a href="#main" id="skip-link" tabindex="0">Skip to Content</a>
   <header class="app-bar">
-    <div class="app-bar__hamburger">
-      <button id="hamburger">☰</button>
-    </div>
     <div class="app-bar__title">
       <h2>Restaurant App</h2>
     </div>
     <nav id="drawer" class="app-bar__navigation">
       <ul>
-        <li><a href="/">Home</a></li>
-        <li><a href="#">Favorite</a></li>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/favorite">Favorite</a></li>
         <li><a href="https://www.linkedin.com/in/dimasalfiansyah/" target="_blank" rel="noopener">About Us</a></li>
       </ul>
     </nav>
+    <div class="app-bar__hamburger">
+      <button id="hamburger">☰</button>
+    </div>
   </header>
   <div class="hero">
     <div class="hero__inner">
@@ -30,6 +30,7 @@
   </div>
   <main id="main" tabindex="0">
     <section class="content">
+      
       <article class="content__headline">
         <div class="headline__tagline">
           <h2 class="headline-tagline__title">Discover. Eat. Give a Star!</h2>
@@ -41,19 +42,17 @@
           <p class="headline-description__recommendation">Did you have recommendation? <button id="recommendation-button"> let's dig in! </button></p>
         </div>
       </article>
-      <article class="content__title">
-        <h2>List of Our Selection of the Best Restaurants</h2>
-        <p>Our selection is based on our survey of the restaurants you voted for us</p>
-      </article>
       <div class="posts-button">
         <button title="button for make content as column" class="data" data-view="column" id="columnButton"></button>
         <button title="button for make content as list" class="data" data-view="list" id="listButton"></button>
       </div>
-      <!-- <div class="posts" id="posts">
-      </div> -->
-      <!-- <button id="testButton">Click</button> -->
+      <article class="content__title">
+        <h2>List of Our Selection of the Best Restaurants</h2>
+        <p>Our selection is based on our survey of the restaurants you voted for us</p>
+      </article>
       <article id="content__item">
-        <restaurants-list></restaurants-list>
+        <!-- <restaurants-list></restaurants-list> -->
+        <!-- <home-content></home-content> -->
       </article>
     </section>
   </main>

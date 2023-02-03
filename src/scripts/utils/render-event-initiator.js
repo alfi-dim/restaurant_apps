@@ -4,7 +4,7 @@ const renderEventInitiator = {
     document.addEventListener(RENDER_EVENT, () => {
       const main = document.querySelector('#content__item');
       main.innerHTML = '';
-      main.innerHTML = '<restaurants-list></restaurants-list>';
+      main.innerHTML = '<home-content></home-content>';
     });
   },
 
