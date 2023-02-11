@@ -5,6 +5,7 @@ import dataviewConfig from '../../data/dataview-localStorage-config';
 class RestaurantsList extends LitElement {
   static properties = {
     data: { type: Object },
+    dataSource: { type: String },
     dataview: { type: String },
   };
 
@@ -32,8 +33,13 @@ class RestaurantsList extends LitElement {
   }
 
   render() {
-    const _dataview = this.dataview;
-    return html`${this.data.restaurants.map((i) => html`<restaurant-item .data=${i} .dataview=${_dataview}></restaurant-item>`)}`;
+    if (this.dataSource === 'Home') {
+      return html`${this.data.restaurants.map((i) => html`<restaurant-item .data=${i} .dataview=${this.dataview} .dataSource=${this.dataSource}></restaurant-item>`)}`;
+    }
+    if (this.dataSource === 'Favorite') {
+      return html` ${this.data.map((i) => html`<restaurant-favorite .data=${i} .dataview=${this.dataview} .dataSource=${this.dataSource}></restaurant-favorite>`)}`;
+    }
+    return html``;
   }
 }
 

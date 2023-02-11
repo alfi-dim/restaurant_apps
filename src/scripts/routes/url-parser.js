@@ -24,6 +24,17 @@ const UrlParser = {
       + (splitedUrl.id ? `/:id` : '')
       + (splitedUrl.verb ? `/${splitedUrl.verb}` : '');
   },
+
+  parseActiveUrlQuery() {
+    const url = window.location.hash.slice(1).toLowerCase();
+    const paramArr = url.slice(url.indexOf('?') + 1).split('&');
+    const params = {};
+    paramArr.map((param) => {
+      const [key, val] = param.split('=');
+      params[key] = decodeURIComponent(val);
+    });
+    return params.page;
+  },
 };
 
 export default UrlParser;

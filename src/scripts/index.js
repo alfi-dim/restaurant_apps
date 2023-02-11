@@ -3,18 +3,25 @@ import '../styles/main.css';
 import '../styles/responsive.css';
 import './views/templates/restaurants';
 import './views/templates/restaurant-item';
+import './views/templates/restaurant-item-detail';
+import './views/templates/restaurant-favorite';
 import './views/pages/home';
+import './views/pages/detail';
+import './views/pages/favorite';
 import dataviewButtonInitiator from './utils/dataview-button-initiator';
 import App from './views/app';
+import RestaurantDataSource from './data/restaurant-data-source';
 
 const app = new App({
   hamburgerButton: document.querySelector('#hamburger'),
   drawer: document.querySelector('#drawer'),
   content: document.querySelector('#content__item'),
   dataviewButton: document.querySelectorAll('.data'),
+  skipContentAnchor: document.querySelector('#skip-link'),
 });
 
 window.addEventListener('load', () => {
+  RestaurantDataSource.getRestaurantsData();
   app.renderPage();
 });
 window.addEventListener('hashchange', () => {

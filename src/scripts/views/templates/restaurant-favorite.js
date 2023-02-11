@@ -1,12 +1,11 @@
 import { LitElement, html, css } from 'lit';
 import CONFIG from '../../globals/config';
 
-class RestaurantItem extends LitElement {
+class RestaurantFavorite extends LitElement {
   static properties = {
     data: { type: Object },
     dataview: { type: String },
     targetId: { type: String },
-    dataSource: { type: String },
   };
 
   static styles = [
@@ -241,6 +240,5 @@ class RestaurantItem extends LitElement {
   };
 }
 
-customElements.define('restaurant-item', RestaurantItem);
-
-export default RestaurantItem;
+customElements.define('restaurant-favorite', RestaurantFavorite);
+export default RestaurantFavorite;

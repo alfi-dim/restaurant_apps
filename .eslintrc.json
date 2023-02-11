@@ -12,6 +12,7 @@
     },
     "rules": {
         "class-methods-use-this": "off",
-        "no-param-reassign": "off"
+        "no-param-reassign": "off",
+        "no-useless-return": "off"
     }
 }
