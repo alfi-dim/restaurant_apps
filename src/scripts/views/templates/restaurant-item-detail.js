@@ -503,11 +503,9 @@ class RestaurantItemDetail extends LitElement {
   }
 
   async _addToFavoriteButton() {
-    // console.log(d);
     await this._isFavorited();
     const { id } = this.data.restaurant;
     const btn = this.renderRoot.getElementById('likeButton');
-    console.log(id);
     if (!this.isFavorited) {
       await LikeRestaurantInitiator._addToFavorite(this.data.restaurant);
       btn.className = 'liked';

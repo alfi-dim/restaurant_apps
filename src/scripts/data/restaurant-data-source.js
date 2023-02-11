@@ -15,7 +15,6 @@ class RestaurantDataSource {
   }
 
   static async addRestaurantReview({ id, name, review }) {
-    console.log(name, review);
     const response = await axios({
       url: API_ENDPOINT.ADD_REVIEW,
       method: 'post',
