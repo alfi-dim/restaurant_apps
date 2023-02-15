@@ -13,6 +13,9 @@
     "rules": {
         "class-methods-use-this": "off",
         "no-param-reassign": "off",
-        "no-useless-return": "off"
+        "no-useless-return": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-restricted-globals": "off",
+        "no-console": "off"
     }
 }

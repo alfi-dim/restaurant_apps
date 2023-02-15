@@ -9,8 +9,10 @@ import './views/pages/home';
 import './views/pages/detail';
 import './views/pages/favorite';
 import './views/pages/search';
+
 import dataviewButtonInitiator from './utils/dataview-button-initiator';
 import App from './views/app';
+import swRegister from './utils/sw-register';
 import RestaurantDataSource from './data/restaurant-data-source';
 
 const app = new App({
@@ -23,9 +25,11 @@ const app = new App({
   searchValue: document.getElementById('search__input'),
 });
 
-window.addEventListener('load', () => {
+window.addEventListener('load', async () => {
   RestaurantDataSource.getRestaurantsData();
   app.renderPage();
+
+  await swRegister();
 });
 window.addEventListener('hashchange', () => {
   app.renderPage();
