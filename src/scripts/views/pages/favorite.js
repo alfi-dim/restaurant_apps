@@ -16,12 +16,13 @@ class Favorite extends LitElement {
   padding: 0;
   box-sizing: border-box;
 }
+
 .favorite__title{
   width: 100%;
   text-align: center;
   margin-top: 50px;
 }
-a{
+a, button{
   min-width: 44px;
   min-height: 44px;
 }

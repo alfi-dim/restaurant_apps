@@ -15,6 +15,10 @@ class RestaurantFavorite extends LitElement {
     padding: 0;
     box-sizing: border-box;
   }
+  a, button{
+    min-width: 44px;
+    min-height: 44px;
+  }
   img {
     display: block;
   }

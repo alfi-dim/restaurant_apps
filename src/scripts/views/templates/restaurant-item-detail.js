@@ -18,6 +18,10 @@ class RestaurantItemDetail extends LitElement {
     padding: 0;
     box-sizing: border-box;
   }
+  a, button{
+    min-width: 44px;
+    min-height: 44px;
+  }
   .detail{
       background-color: #F2DEBA;
       display: grid;

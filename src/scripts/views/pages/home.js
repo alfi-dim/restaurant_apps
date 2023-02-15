@@ -18,6 +18,10 @@ class Home extends LitElement {
     padding: 0;
     box-sizing: border-box;
   }
+  a, button{
+    min-width: 44px;
+    min-height: 44px;
+  }
   .home__title{
     width: 100%;
     text-align: center;

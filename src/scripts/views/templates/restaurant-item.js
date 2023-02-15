@@ -19,6 +19,10 @@ class RestaurantItem extends LitElement {
   img {
     display: block;
   }
+  a, button{
+    min-width: 44px;
+    min-height: 44px;
+  }
   a {
     text-decoration: none;
     color: black;
