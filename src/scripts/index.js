@@ -8,6 +8,7 @@ import './views/templates/restaurant-favorite';
 import './views/pages/home';
 import './views/pages/detail';
 import './views/pages/favorite';
+import './views/pages/search';
 import dataviewButtonInitiator from './utils/dataview-button-initiator';
 import App from './views/app';
 import RestaurantDataSource from './data/restaurant-data-source';
@@ -18,6 +19,8 @@ const app = new App({
   content: document.querySelector('#content__item'),
   dataviewButton: document.querySelectorAll('.data'),
   skipContentAnchor: document.querySelector('#skip-link'),
+  searchButton: document.querySelector('#search__button'),
+  searchValue: document.getElementById('search__input'),
 });
 
 window.addEventListener('load', () => {

@@ -29,6 +29,11 @@
     .hero__underline{
         font-size: 1.2em;
     }
+
+    .content__utils{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 @media screen and (min-width: 700px){

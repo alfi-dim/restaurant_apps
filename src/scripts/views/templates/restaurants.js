@@ -33,7 +33,7 @@ class RestaurantsList extends LitElement {
   }
 
   render() {
-    if (this.dataSource === 'Home') {
+    if (this.dataSource === 'Home' || this.dataSource.includes('search')) {
       return html`${this.data.restaurants.map((i) => html`<restaurant-item .data=${i} .dataview=${this.dataview} .dataSource=${this.dataSource}></restaurant-item>`)}`;
     }
     if (this.dataSource === 'Favorite') {

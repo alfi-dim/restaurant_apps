@@ -30,6 +30,12 @@ class RestaurantDataSource {
 
     return response.data;
   }
+
+  static async searchRestaurants(query) {
+    const response = await axios.get(`${API_ENDPOINT.SEARCH(query)}`);
+
+    return response.data;
+  }
 }
 
 export default RestaurantDataSource;

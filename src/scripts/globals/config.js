@@ -22,6 +22,10 @@ const CONFIG = {
       name: 'detail-restaurant-content',
       tag: '<detail-restaurant-content></detail-restaurant-content>',
     },
+    SEARCH: {
+      name: 'search-restaurant-content',
+      tag: '<search-restaurant-content></search-restaurant-content>',
+    },
   },
 };
 

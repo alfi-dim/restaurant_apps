@@ -29,11 +29,22 @@ const UrlParser = {
     const url = window.location.hash.slice(1).toLowerCase();
     const paramArr = url.slice(url.indexOf('?') + 1).split('&');
     const params = {};
+    // eslint-disable-next-line array-callback-return
     paramArr.map((param) => {
       const [key, val] = param.split('=');
       params[key] = decodeURIComponent(val);
     });
-    return params.page;
+    return params;
+  },
+
+  parsePageQuery() {
+    const { page } = this.parseActiveUrlQuery();
+    return page;
+  },
+
+  parseSearchQuery() {
+    const { q } = this.parseActiveUrlQuery();
+    return q;
   },
 };
 

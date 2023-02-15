@@ -354,7 +354,7 @@ class RestaurantItemDetail extends LitElement {
   `];
 
   render() {
-    this.page = UrlParser.parseActiveUrlQuery();
+    this.page = UrlParser.parsePageQuery();
     const { restaurant } = this.data;
     return html`
         ${this._detailRestaurantTemplate(restaurant)}
@@ -485,6 +485,11 @@ class RestaurantItemDetail extends LitElement {
       window.location.href = '/#/favorite';
       return;
     }
+    if (this.page.includes('search')) {
+      const url = this.page.split('?');
+      window.location.href = `/#/${url[0]}?q=${url[1]}`;
+      return;
+    }
     window.location.href = '/';
   };
 
@@ -537,6 +542,7 @@ class RestaurantItemDetail extends LitElement {
       this.data.restaurant.customerReviews = response.customerReviews;
       this._displayAddReviewForm();
       const reviewElement = this.renderRoot.querySelector('.review');
+      reviewElement.innerHTML = '';
       // eslint-disable-next-line array-callback-return
       this.data.restaurant.customerReviews.map((customerReview) => {
         reviewElement.innerHTML += this._renderReview(customerReview);
