@@ -23,8 +23,6 @@
     "eslint": "^8.32.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.27.5",
-    "favicons": "^7.1.0",
-    "favicons-webpack-plugin": "^6.0.0",
     "html-webpack-plugin": "^5.5.0",
     "http-serve": "^1.0.1",
     "jasmine-ajax": "^4.0.0",
@@ -42,9 +40,6 @@
     "webpack-merge": "^5.8.0",
     "webpack-pwa-manifest": "^4.3.0",
     "whatwg-fetch": "^3.6.2",
-    "workbox-precaching": "^6.5.4",
-    "workbox-routing": "^6.5.4",
-    "workbox-strategies": "^6.5.4",
     "workbox-webpack-plugin": "^6.5.4"
   },
   "dependencies": {
