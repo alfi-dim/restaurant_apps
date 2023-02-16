@@ -11,6 +11,11 @@ img {
   display: block;
 }
 
+a, button{
+  min-width: 44px;
+  min-height: 44px;
+}
+
 #skip-link{
   position: absolute;
   width: 150px;
