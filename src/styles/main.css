@@ -10,10 +10,6 @@
 img {
   display: block;
 }
-a, button{
-  min-width: 44px;
-  min-height: 44px;
-}
 
 #skip-link{
   position: absolute;
@@ -66,6 +62,9 @@ a, button{
   user-select: none;
   text-decoration: none;
   color: black;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-block;
 }
 .app-bar .app-bar__navigation {
   position: absolute;
@@ -240,6 +239,9 @@ a, button{
   font-size: 14px;
   line-height: 18px;
   border: 2px solid #EDDBC7;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-block;
 
 }
 #search__input::placeholder{

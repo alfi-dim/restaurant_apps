@@ -18,9 +18,10 @@ class RestaurantItemDetail extends LitElement {
     padding: 0;
     box-sizing: border-box;
   }
-  a, button{
+  a, button, input, textarea{
     min-width: 44px;
     min-height: 44px;
+    display: inline-block;
   }
   .detail{
       background-color: #F2DEBA;

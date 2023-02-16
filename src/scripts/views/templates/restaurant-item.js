@@ -22,6 +22,7 @@ class RestaurantItem extends LitElement {
   a, button{
     min-width: 44px;
     min-height: 44px;
+    display: inline-block;
   }
   a {
     text-decoration: none;

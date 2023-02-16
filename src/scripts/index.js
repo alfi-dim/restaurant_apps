@@ -29,7 +29,8 @@ window.addEventListener('load', async () => {
   RestaurantDataSource.getRestaurantsData();
   app.renderPage();
 
-  await swRegister();
+  const env = process.env.NODE_ENV;
+  if (env === 'production') await swRegister();
 });
 window.addEventListener('hashchange', () => {
   app.renderPage();
