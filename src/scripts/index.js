@@ -18,17 +18,21 @@ import RestaurantDataSource from './data/restaurant-data-source';
 const app = new App({
   hamburgerButton: document.querySelector('#hamburger'),
   drawer: document.querySelector('#drawer'),
-  content: document.querySelector('#content__item'),
+  content: document.getElementById('content__item'),
   dataviewButton: document.querySelectorAll('.data'),
-  skipContentAnchor: document.querySelector('#skip-link'),
   searchButton: document.querySelector('#search__button'),
   searchValue: document.getElementById('search__input'),
 });
+
+const skipContentAnchor = document.getElementById('skip-link');
 
 window.addEventListener('load', async () => {
   RestaurantDataSource.getRestaurantsData();
   app.renderPage();
 
+  skipContentAnchor.addEventListener('click', () => {
+    app.focusContent();
+  });
   const env = process.env.NODE_ENV;
   if (env === 'production') await swRegister();
 });

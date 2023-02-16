@@ -11,7 +11,7 @@
   <title>Restaurant Apps Starter Project</title>
 </head>
 <body>
-  <a href="#main" id="skip-link" tabindex="0">Skip to Content</a>
+  <button id="skip-link">Skip to Content</button>
   <header class="app-bar">
     <div class="app-bar__title">
       <h2><a href="/">Restaurant App</a></h2>
@@ -33,7 +33,7 @@
       <p class="hero__tagline">Let's enjoy the <span class="hero__underline">wonderful food</span> from our selected <span class="hero__selected">best restaurant</span></p>
     </div>
   </div>
-  <main id="main" tabindex="0">
+  <main id="main">
     <section class="content" id="content">
       
       <article class="content__headline">
@@ -61,11 +61,11 @@
       </div>
       </section>
       
-      <article id="content__item">
-      </article>
+      <div id="content__item" tabindex="0">
+      </div>
     </section>
   </main>
-  <footer>
+  <footer id="footeree">
     <section class="footer__info">
       <div class="footer-info__logo">
         <img src="./images/logo/logo.png" alt="Restaurant Apps Logo" class="footer-logo">

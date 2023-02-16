@@ -12,7 +12,6 @@ class App {
     content,
     contentTitle,
     dataviewButton,
-    skipContentAnchor,
     searchButton,
     searchValue,
   }) {
@@ -21,7 +20,6 @@ class App {
     this._content = content;
     this._contentTitle = contentTitle;
     this._dataviewButton = dataviewButton;
-    this._skipContentAnchor = skipContentAnchor;
     this._searchButton = searchButton;
     this._searchValue = searchValue;
 
@@ -70,6 +68,13 @@ class App {
 
     this._content.innerHTML = await page;
     this._searchValue.value = '';
+  }
+
+  focusContent() {
+    this._content.focus({ preventScroll: true });
+
+    const scrollPosistion = this._content.getBoundingClientRect().top + window.scrollY + (-100);
+    window.scrollTo({ top: scrollPosistion, behavior: 'smooth' });
   }
 
   checkIsPageReloaded() {
