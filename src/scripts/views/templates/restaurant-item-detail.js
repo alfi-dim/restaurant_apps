@@ -444,7 +444,7 @@ class RestaurantItemDetail extends LitElement {
                     <span>Say something about your dish</span>
                 </li>
                 <li>
-                    <input type="submit" value="Submit" @click=${this._addReview}>
+                    <input type="submit" id="reviewerSubmit" value="Submit" @click=${this._addReview}>
                 </li>
                 </ul>
                 </form>
@@ -542,6 +542,10 @@ class RestaurantItemDetail extends LitElement {
     const { id } = this.data.restaurant;
     const name = this.renderRoot.querySelector('#reviewerName').value;
     const review = this.renderRoot.querySelector('#reviewerText').value;
+    if (name === '' || review === '') {
+      alert('name column and review column should not empty');
+      return;
+    }
     const response = await RestaurantDataSource.addRestaurantReview({ id, name, review });
     if (!response.error) {
       this.data.restaurant.customerReviews = response.customerReviews;
