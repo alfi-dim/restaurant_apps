@@ -7,6 +7,10 @@ const SearchInitiator = {
   },
 
   _renderSearch(value) {
+    if (value === '') {
+      alert('search query should not empty');
+      return;
+    }
     document.location.href = `/#/search?q=${value}`;
   },
 
