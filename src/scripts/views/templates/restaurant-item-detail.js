@@ -501,7 +501,7 @@ class RestaurantItemDetail extends LitElement {
   renderFavoriteButton() {
     if (this.isFavorited) {
       return html`
-      <button id="likeButton" class="liked" aria-label="add this restaurant to favorite" @click="${this._addToFavoriteButton}"></button>
+      <button id="likeButton" class="liked" aria-label="delete this restaurant from favorite" @click="${this._addToFavoriteButton}"></button>
       `;
     }
     return html`<button id="likeButton" class="like" aria-label="add this restaurant to favorite" @click="${this._addToFavoriteButton}"></button>`;
