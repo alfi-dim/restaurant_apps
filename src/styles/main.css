@@ -101,31 +101,46 @@ a, button{
 /* Jumbotron */
 
 .hero{
-  display: flex;
+  display: grid;
   align-items: center;
   min-height: 380px;
   width: 100%;
   text-align: center;
-  background-image: url("../public/images/heros/hero-image_2.jpg");
+  position: relative;
   background-color: #F2DEBA;
   background-repeat: no-repeat;
+}
+.hero > * {
+  grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+.hero__image{
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
 }
 
 .hero__inner{
   margin: 0 auto;
-  color: white;
+  color: #FBF2CF;
   font-weight: 500;
   font-size: 0.8em;
+  position: relative;
+}
+.hero__title{
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
 .hero__title::after{
   content: '';
   display: block;
-  border-bottom: 2px solid #E0DECA;
+  border-bottom: 4px solid #E0DECA;
 }
 .hero__tagline{
   font-weight: 500;
-  color: white;
+  color: #fff;
   font-size: 1.2em;
+  background-color: rgba(224, 222, 202, 0.7);
 }
 .hero__selected{
   background-color: rgba(200, 92, 92, 0.8);

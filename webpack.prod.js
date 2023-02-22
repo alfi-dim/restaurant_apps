@@ -1,4 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ImageminWebpWebpackPlugin = require('imagemin-webp-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const { merge } = require('webpack-merge');
 const path = require('path');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
@@ -11,7 +14,12 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.js$/,
-        exclude: /node_modules/,
+        exclude: [
+          /node_modules/,
+          path.resolve(__dirname, './cypress'),
+          path.resolve(__dirname, './e2e'),
+          path.resolve(__dirname, './specs'),
+        ],
         use: [
           {
             loader: 'babel-loader',
@@ -25,6 +33,10 @@ module.exports = merge(common, {
         test: /\.webmanifest$/,
         exclude: [path.resolve(__dirname, 'src/public/app.webmanifest/')],
       },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
     ],
   },
   plugins: [
@@ -32,5 +44,22 @@ module.exports = merge(common, {
     new WorkboxWebpackPlugin.GenerateSW({
       swDest: './sw.bundle.js',
     }),
+    new ImageminWebpWebpackPlugin({
+      config: [
+        {
+          test: /\.(jpe?g|png)/,
+          options: {
+            quality: 50,
+          },
+        },
+      ],
+      overrideExtension: true,
+    }),
+    new MiniCssExtractPlugin(),
   ],
+  optimization: {
+    minimizer: [
+      new CssMinimizerPlugin(),
+    ],
+  },
 });

@@ -82,9 +82,3 @@
         display: none;
     }
 }
-@media screen and (min-width: 1200px) {
-    .hero{
-        background-size: 1000px;
-        background-position: top;
-    }
-}

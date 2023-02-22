@@ -28,6 +28,20 @@
     </div>
   </header>
   <div class="hero">
+    <picture>
+        <!-- 480px resolution image -->
+      <source media="(max-width: 600px)" type="image/webp" srcset="./images/heros/hero-image_2-small.webp">
+      <source media="(max-width: 600px)" type="image/jpeg" srcset="./images/heros/hero-image_2-small.jpg">
+
+      <!-- 800px resolution image -->
+      <source media="(min-width: 601px) and (max-width: 1000px)" type="image/webp" srcset="./images/heros/hero-image_2-medium.webp">
+      <source media="(min-width: 601px) and (max-width: 1000px)" type="image/jpeg" srcset="./images/heros/hero-image_2-medium.jpg">
+
+      <!-- 1000px resolution image -->
+      <source media="(min-width: 1001px)" type="image/webp" srcset="./images/heros/hero-image_2-large.webp">
+      <source media="(min-width: 1001px)" type="image/jpeg" srcset="./images/heros/hero-image_2-large.jpg">
+      <img src="./images/heros/hero-image_2.jpg" alt="" class="hero__image">
+    </picture>
     <div class="hero__inner">
       <h1 class="hero__title">The Best Restaurant from Sabang to Merauke</h1>
       <p class="hero__tagline">Let's enjoy the <span class="hero__underline">wonderful food</span> from our selected <span class="hero__selected">best restaurant</span></p>
@@ -68,7 +82,11 @@
   <footer id="footeree">
     <section class="footer__info">
       <div class="footer-info__logo">
-        <img src="./images/logo/logo.png" alt="Restaurant Apps Logo" class="footer-logo">
+        <picture>
+          <source srcset="./images/logo/logo.webp" type="image/webp">
+          <source srcset="./images/logo/logo.png" type="image/png">
+          <img src="./images/logo/logo.png" alt="Restaurant Apps Logo" class="footer-logo">
+        </picture>
       </div>
       <div class="footer-info__description">
         <p>Restaurant Apps</p>

@@ -38,10 +38,19 @@ class RestaurantItem extends LitElement {
   
   /* post column style */
   .post-column-thumbnail{
+    display: grid;
     width: 100%;
     min-height: 200px;
-    padding: 5px;
     background-position: center;
+  }
+  .post-column-thumbnail > * {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
+  .post-column-thumbnail__image{
+    object-fit: cover;
+    width: 100%;
+    background-repeat: no-repeat;
   }
   .post-column-thumbnail__rating{
     display: grid;
@@ -49,10 +58,13 @@ class RestaurantItem extends LitElement {
     gap: 0rem;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 3px 5px;
+    margin: 5px;
     border-radius: 100px;
     justify-content: center;
     width: -moz-fit-content;
     width: fit-content;
+    height: fit-content;
+    height: -moz-fit-content;
   }
   .post-column-thumbnail__rating-value{
     text-align: center;
@@ -197,11 +209,20 @@ class RestaurantItem extends LitElement {
 
   _columnItem = (data) => html`
   <article class="posts-column-item" id="${data.id}">
-    <div class="post-column-thumbnail" style="background-image: url(${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId});">
-        <div class="post-column-thumbnail__rating">
-            <h2 class="post-column-thumbnail__rating-value">${data.rating}</h2>
-            <img src="./images/icons/rating.svg" alt="Rating Icon" class="post-column-thumbnail__rating-icon">
-        </div>
+    <div class="post-column-thumbnail">
+      <picture>
+        <source srcset="${CONFIG.BASE_IMAGE_URL.small}/${data.pictureId}" type="image/webp" media="all and (max-width: 600px)" />        
+        <source srcset="${CONFIG.BASE_IMAGE_URL.small}/${data.pictureId}" type="image/jpeg" media="all and (max-width: 600px)" />
+        <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${data.pictureId}" type="image/webp" media="all and (min-width: 601px) and (max-width: 960px)" />    
+        <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${data.pictureId}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
+        <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" type="image/webp" media="all and (min-width: 961px)" />        
+        <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" type="image/jpeg" media="all and (min-width: 961px)" />
+        <img src="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" class="post-column-thumbnail__image" alt="picture of ${data.name} restaurant"/>
+      </picture>
+      <div class="post-column-thumbnail__rating">
+          <h2 class="post-column-thumbnail__rating-value">${data.rating}</h2>
+          <img src="./images/icons/rating.svg" alt="Rating Icon" class="post-column-thumbnail__rating-icon">
+      </div>
     </div>
     <div class="post-column-content">
         <h2 class="post-column-content__title"><a href="/#/detail/${data.id}?page=${this.dataSource}">${data.name}</a></h2>
