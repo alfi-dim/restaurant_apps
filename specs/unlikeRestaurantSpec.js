@@ -3,7 +3,6 @@ import favoriteRestaurantDb from '../src/scripts/data/favorite-restaurants-idb';
 import * as TestFactories from './helper/testFactories';
 
 describe('Unliking A restaurant', () => {
-
   const addLikeContainer = () => {
     document.body.innerHTML = '<div id="likeButtonContainer">like</div>';
   };
@@ -18,7 +17,6 @@ describe('Unliking A restaurant', () => {
   });
 
   it('should display unlike widget when the restaurant has been liked', async () => {
-
     await TestFactories.checkIsRestaurantFavorited({ id: 1 });
 
     expect(document.querySelector('[aria-label="delete this restaurant from favorite"]')).toBeTruthy();
@@ -31,7 +29,6 @@ describe('Unliking A restaurant', () => {
   });
 
   it('should be able to remove liked restaurant restaurant from the list', async () => {
-
     await TestFactories.clickLikeButton({ id: 1 });
 
     document.querySelector('[aria-label="delete this restaurant from favorite"]').dispatchEvent(new Event('click'));
@@ -39,9 +36,7 @@ describe('Unliking A restaurant', () => {
     expect(await favoriteRestaurantDb.getAllRestaurant()).toEqual([]);
   });
 
-
   it('should not throw error if the unliked restaurant is not in the list', async () => {
-
     await TestFactories.clickLikeButton({ id: 1 });
 
     await favoriteRestaurantDb.deleteRestaurant(1);
