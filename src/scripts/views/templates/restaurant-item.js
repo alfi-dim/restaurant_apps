@@ -217,7 +217,7 @@ class RestaurantItem extends LitElement {
         <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${data.pictureId}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
         <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" type="image/webp" media="all and (min-width: 961px)" />        
         <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" type="image/jpeg" media="all and (min-width: 961px)" />
-        <img src="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" class="post-column-thumbnail__image" alt="picture of ${data.name} restaurant"/>
+        <img loading="lazy" width="400" height="280" src="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" class="post-column-thumbnail__image" alt="picture of ${data.name} restaurant"/>
       </picture>
       <div class="post-column-thumbnail__rating">
           <h2 class="post-column-thumbnail__rating-value">${data.rating}</h2>
