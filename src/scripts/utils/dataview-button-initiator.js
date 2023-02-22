@@ -1,4 +1,5 @@
 import dataviewConfig from '../data/dataview-localStorage-config';
+import UrlParser from '../routes/url-parser';
 import renderEventInitiator from './render-event-initiator';
 
 const dataviewButtonInitiator = {
@@ -26,6 +27,10 @@ const dataviewButtonInitiator = {
   _saveDatasetValue(target) {
     const targetDataview = target.getAttribute('data-view');
     dataviewConfig.saveConfig(targetDataview);
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    if (url.includes('/detail')) {
+      window.location.href = '/';
+    }
     renderEventInitiator._dispatchEvent();
   },
 

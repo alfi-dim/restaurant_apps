@@ -11,6 +11,11 @@ img {
   display: block;
 }
 
+a, button{
+  min-width: 44px;
+  min-height: 44px;
+}
+
 #skip-link{
   position: absolute;
   width: 150px;
@@ -29,79 +34,113 @@ img {
   top: 10px;
 }
 
-.nav{
-  width: 100%;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  line-height: 24px;
+.app-bar{
+  padding: 8px 16px;
   background-color: white;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 10px;
+  position: sticky;
+  top: 0;
   z-index: 99;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
 }
 
-.nav__list{
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  position: absolute;
-  background-color: white;
-  transform: translate(500px, 50px);
-  transition: transform 0.3s ease-in-out;
-  list-style-type: none;
-  width: 100%;
-  padding-left: 25px;
+.app-bar__hamburger{
+  display: flex;
+  align-items: center;
 }
-.nav__title{
-  padding: 24px;
+
+.app-bar__hamburger button{
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  padding: 8px;
+  cursor: pointer;
 }
-.nav__item{
-  padding: 24px 0px;
+.app-bar__title{
+  display: flex;
+  align-items: center;
 }
-.nav__item a{
+.app-bar__title h2 a {
+  -webkit-user-select: none;
+  user-select: none;
+  text-decoration: none;
+  color: black;
   min-width: 44px;
   min-height: 44px;
   display: inline-block;
+}
+.app-bar .app-bar__navigation {
+  position: absolute;
+  width: 250px;
+  transition: all 0.3s;
+  padding: 8px;
+  background-color: white;
+  overflow: hidden;
+  left: -250px;
+  top: 40px;
+}
+ 
+.app-bar .app-bar__navigation.open {
+  left: 0;
+}
+ 
+.app-bar .app-bar__navigation ul li a {
+  display: inline-block;
   text-decoration: none;
   color: black;
+  padding: 8px;
+  margin-bottom: 5px;
+  width: 100%;
 }
-#hamburger{
-  font-size: 24px;
-  text-align: right;
-  padding: 25px;
-  text-decoration: none;
-  display: block;
-}
-.nav__list.open{
-  transform: translate(0,50px);
+.app-bar__navigation.open{
+  transform: translate(0);
 }
 
 /* Jumbotron */
 
 .hero{
-  display: flex;
+  display: grid;
   align-items: center;
   min-height: 380px;
   width: 100%;
   text-align: center;
-  background-image: url("../public/images/heros/hero-image_2.jpg");
+  position: relative;
   background-color: #F2DEBA;
   background-repeat: no-repeat;
+}
+.hero > * {
+  grid-column: 1 / 1;
+    grid-row: 1 / 1;
+}
+.hero__image{
+  object-fit: cover;
+  height: 500px;
+  width: 100%;
 }
 
 .hero__inner{
   margin: 0 auto;
-  color: white;
+  color: #FBF2CF;
   font-weight: 500;
   font-size: 0.8em;
+  position: relative;
+}
+.hero__title{
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
 .hero__title::after{
   content: '';
   display: block;
-  border-bottom: 2px solid #E0DECA;
+  border-bottom: 4px solid #E0DECA;
 }
 .hero__tagline{
   font-weight: 500;
-  color: white;
+  color: #fff;
   font-size: 1.2em;
+  background-color: rgba(224, 222, 202, 0.7);
 }
 .hero__selected{
   background-color: rgba(200, 92, 92, 0.8);
@@ -168,6 +207,12 @@ img {
   min-height: 44px;
   display: inline-block;
 }
+
+/* content utility */
+.content__utils{
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
 /* data-view button */
 .posts-button{
   background-color: lightgray;
@@ -202,124 +247,43 @@ img {
   background-color: rgb(168, 168, 168) !important;
   box-shadow: none;
 }
-/* article */
-.content__title{
-  text-align: center;
+/* search box */
+.search__box, form{
+  margin: 30px auto;
   width: 100%;
-  margin-top: 50px;
+  display: flex;
 }
-
-/* posts */
-
-.posts{
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  margin: 0 auto auto -32px;
-  text-align: left;
-}
-
-/* post-item */
-
-.posts-column-item{
-  margin: 16px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+#search__input{
   width: 100%;
-  border-radius: 5px;
-  overflow: hidden;
-}
-
-/* post column style */
-.post-column-thumbnail{
-  background-image: url(https://restaurant-api.dicoding.dev/images/medium/41);
-  width: 100%;
-  min-height: 200px;
-  padding: 5px;
-  background-position: center;
-}
-.post-column-thumbnail__rating{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  padding: 3px 5px;
-  border-radius: 100px;
-  width: -moz-fit-content;
-  width: fit-content;
-}
-.post-column-thumbnail__rating-value{
-  text-align: center;
-}
-.post-column-thumbnail__rating-icon{
-  width: 24px;
-}
-.post-column-content{
-  padding: 16px 32px 32px 32px;
-}
-.post-column-content__title{
-  font-size: 24px;
-  margin-top: 16px;
-  transition: 0.3s opacity;
-}
-.post-column-content__description{
-  margin-top: 16px;
+  padding: 12px 24px;
   font-size: 14px;
-  line-height: 1.5em;
-}
-.post-column-content__city{
-  margin-top: 16px;
-  font-size: 18px;
-  font-weight: 1000;
-  line-height: 1.5em;
-}
-
-/* post list style */
-
-.posts-list-item{
-  margin: 16px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  width: 100%;
-  border-radius: 5px;
-  max-height: 380px;
-  overflow: hidden;
-  display: grid;
-  grid-template-columns: repeat(1, 1fr 3fr);
-  gap: 5px;
-}
-
-
-.post-list-thumbnail{
-    max-width: 120px;
-}
-
-.post-list-content{
-  width: 100%;
-  padding: 5px;
-}
-.post-list-content__title{
-  padding-top: 5px;
-  font-size: 1em;
-}
-.post-list-content__rating{
-  font-size: 0.8em;
-}
-.post-list-content__description{
-  font-size: 0.6em;
-}
-.post-list-content__city{
-  padding-top: 5px;
-  font-weight: 800;
-  font-size: 0.8em;
-}
-
-.readmore-button{
-  background-color: transparent;
-  border: none;
-  text-decoration: underline;
-  color: blue;
-  font-size: 0.9em;
-  cursor: pointer;
+  line-height: 18px;
+  border: 2px solid #EDDBC7;
   min-width: 44px;
   min-height: 44px;
+  display: inline-block;
+
+}
+#search__input::placeholder{
+  color: #575756;
+  opacity: 0.8;
+  letter-spacing: 1px;
+  font-size: 12px;
+  font-style: italic;
+}
+
+#search__button{
+  min-width: 44px;
+  min-height: 44px;
+  content: '';
+  background-size: 80%;
+  background-position: center;
+  background-image: url('../public/images/icons/search.svg');
+  background-repeat: no-repeat;
+  background-color: #EDDBC7;
+  border: 2px solid #EDDBC7;
+
+  cursor: pointer;
 }
 
 /* footer */

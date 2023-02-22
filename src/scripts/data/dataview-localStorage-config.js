@@ -1,4 +1,4 @@
-import CONFIG from '../global/config';
+import CONFIG from '../globals/config';
 
 const { DATAVIEW_STORAGE_KEY } = CONFIG;
 

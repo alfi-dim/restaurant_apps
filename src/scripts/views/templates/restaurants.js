@@ -2,11 +2,10 @@
 import { LitElement, html, css } from 'lit';
 import dataviewConfig from '../../data/dataview-localStorage-config';
 
-const dataJson = require('../../data/DATA.json');
-
 class RestaurantsList extends LitElement {
   static properties = {
     data: { type: Object },
+    dataSource: { type: String },
     dataview: { type: String },
   };
 
@@ -16,6 +15,9 @@ class RestaurantsList extends LitElement {
     grid-template-columns: repeat(1, 1fr);
     margin: 0 auto auto -32px;
     text-align: left;
+  }
+  .loading{
+    background-color: red
   }
   @media screen and (min-width: 1000px) {
     :host{
@@ -27,13 +29,17 @@ class RestaurantsList extends LitElement {
 
   constructor() {
     super();
-    this.data = dataJson;
     this.dataview = dataviewConfig.getConfig();
   }
 
   render() {
-    const _dataview = this.dataview;
-    return html`${this.data.restaurants.map((i) => html`<restaurant-item .data=${i} .dataview=${_dataview}></restaurant-item>`)}`;
+    if (this.dataSource === 'Home' || this.dataSource.includes('search')) {
+      return html`${this.data.restaurants.map((i) => html`<restaurant-item .data=${i} .dataview=${this.dataview} .dataSource=${this.dataSource}></restaurant-item>`)}`;
+    }
+    if (this.dataSource === 'Favorite') {
+      return html` ${this.data.map((i) => html`<restaurant-favorite .data=${i} .dataview=${this.dataview} .dataSource=${this.dataSource}></restaurant-favorite>`)}`;
+    }
+    return html``;
   }
 }
 

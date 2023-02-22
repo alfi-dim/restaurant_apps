@@ -1,10 +1,12 @@
 import { LitElement, html, css } from 'lit';
+import CONFIG from '../../globals/config';
 
 class RestaurantItem extends LitElement {
   static properties = {
     data: { type: Object },
     dataview: { type: String },
     targetId: { type: String },
+    dataSource: { type: String },
   };
 
   static styles = [
@@ -17,6 +19,15 @@ class RestaurantItem extends LitElement {
   img {
     display: block;
   }
+  a, button{
+    min-width: 44px;
+    min-height: 44px;
+    display: inline-block;
+  }
+  a {
+    text-decoration: none;
+    color: black;
+  }
   .posts-column-item{
     margin-top: 15px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
@@ -27,10 +38,19 @@ class RestaurantItem extends LitElement {
   
   /* post column style */
   .post-column-thumbnail{
+    display: grid;
     width: 100%;
     min-height: 200px;
-    padding: 5px;
     background-position: center;
+  }
+  .post-column-thumbnail > * {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+  }
+  .post-column-thumbnail__image{
+    object-fit: cover;
+    width: 100%;
+    background-repeat: no-repeat;
   }
   .post-column-thumbnail__rating{
     display: grid;
@@ -38,10 +58,13 @@ class RestaurantItem extends LitElement {
     gap: 0rem;
     background-color: rgba(255, 255, 255, 0.8);
     padding: 3px 5px;
+    margin: 5px;
     border-radius: 100px;
     justify-content: center;
     width: -moz-fit-content;
     width: fit-content;
+    height: fit-content;
+    height: -moz-fit-content;
   }
   .post-column-thumbnail__rating-value{
     text-align: center;
@@ -72,7 +95,7 @@ class RestaurantItem extends LitElement {
   `,
     css`
   .posts-list-item{
-    margin: 16px;
+    margin-top: 16px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 100%;
     border-radius: 5px;
@@ -181,20 +204,28 @@ class RestaurantItem extends LitElement {
     if (this.dataview === 'list') {
       return this._listItem(this.data);
     }
-
     return html``;
   }
 
   _columnItem = (data) => html`
   <article class="posts-column-item" id="${data.id}">
-    <div class="post-column-thumbnail" style="background-image: url(${data.pictureId});">
-        <div class="post-column-thumbnail__rating">
-            <h2 class="post-column-thumbnail__rating-value">${data.rating}</h2>
-            <img src="./images/icons/rating.svg" alt="Rating Icon" class="post-column-thumbnail__rating-icon">
-        </div>
+    <div class="post-column-thumbnail">
+      <picture>
+        <source srcset="${CONFIG.BASE_IMAGE_URL.small}/${data.pictureId}" type="image/webp" media="all and (max-width: 600px)" />        
+        <source srcset="${CONFIG.BASE_IMAGE_URL.small}/${data.pictureId}" type="image/jpeg" media="all and (max-width: 600px)" />
+        <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${data.pictureId}" type="image/webp" media="all and (min-width: 601px) and (max-width: 960px)" />    
+        <source srcset="${CONFIG.BASE_IMAGE_URL.medium}/${data.pictureId}" type="image/jpeg" media="all and (min-width: 601px) and (max-width: 960px)" />
+        <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" type="image/webp" media="all and (min-width: 961px)" />        
+        <source srcset="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" type="image/jpeg" media="all and (min-width: 961px)" />
+        <img loading="lazy" width="400" height="280" src="${CONFIG.BASE_IMAGE_URL.large}/${data.pictureId}" class="post-column-thumbnail__image" alt="picture of ${data.name} restaurant"/>
+      </picture>
+      <div class="post-column-thumbnail__rating">
+          <h2 class="post-column-thumbnail__rating-value">${data.rating}</h2>
+          <img src="./images/icons/rating.svg" alt="Rating Icon" class="post-column-thumbnail__rating-icon">
+      </div>
     </div>
     <div class="post-column-content">
-        <h2 class="post-column-content__title">${data.name}</h2>
+        <h2 class="post-column-content__title"><a href="/#/detail/${data.id}?page=${this.dataSource}">${data.name}</a></h2>
         <p class="post-column-content__description">${data.description}</p>
         <p class="post-column-content__city">Lokasi: ${data.city}</p>
     </div>
@@ -204,11 +235,11 @@ class RestaurantItem extends LitElement {
     const isDescriptionLengthMoreThan120 = data.description.length > 120;
     return html`
   <article class="posts-list-item" id="${data.id}">
-      <img src="${data.pictureId}" alt="Gambar dari restoran ${data.name}" class="post-list-thumbnail">
+      <img src="${CONFIG.BASE_IMAGE_URL.small}/${data.pictureId}" alt="Gambar dari restoran ${data.name}" class="post-list-thumbnail">
       <div class="post-list-content">
           <p class="post-list-content__rating">rating: ${data.rating}</p>
           <p class="post-list-content__city">Lokasi: ${data.city}</p>
-          <h2 class="post-list-content__title">${data.name}</h2>
+          <h2 class="post-list-content__title"><a href="/#/detail/${data.id}?page=${this.dataSource}">${data.name}</a></h2>
           <p class="post-list-content__description">${isDescriptionLengthMoreThan120 ? data.description.slice(0, 129) : data.description} 
               <span id="dots-${data.id}" style="display: ${isDescriptionLengthMoreThan120 ? 'block' : 'none'}">...</span>
               <span id="full-${data.id}" style="display: none;">${this.data.description}</span>

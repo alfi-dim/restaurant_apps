@@ -1,16 +1,27 @@
+import CONFIG from '../globals/config';
+import UrlParser from '../routes/url-parser';
+
 const RENDER_EVENT = 'render-event';
+const { CUSTOM_ELEMENTS } = CONFIG;
 const renderEventInitiator = {
-  init() {
-    document.addEventListener(RENDER_EVENT, () => {
-      const main = document.querySelector('#content__item');
-      main.innerHTML = '';
-      main.innerHTML = '<restaurants-list></restaurants-list>';
+  init({ content }) {
+    document.addEventListener(RENDER_EVENT, (e) => {
+      content.innerHTML = '';
+      const { pages } = e.detail;
+      if (pages === '/home' || pages === '/') {
+        content.innerHTML = `${CUSTOM_ELEMENTS.HOME.tag}`;
+        return;
+      }
+
+      if (pages === '/favorite') {
+        content.innerHTML = `${CUSTOM_ELEMENTS.FAVORITE.tag}`;
+      }
     });
   },
 
   _dispatchEvent() {
-    this.init();
-    document.dispatchEvent(new Event(RENDER_EVENT));
+    const url = UrlParser.parseActiveUrlWithCombiner();
+    document.dispatchEvent(new CustomEvent(RENDER_EVENT, { detail: { pages: url } }));
   },
 };
 

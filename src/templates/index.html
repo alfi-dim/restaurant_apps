@@ -3,27 +3,53 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
+  <meta name="description" content="List of best restaurant">
+
+  <link rel="manifest" href="./app.webmanifest">
+  <link rel="apple-touch-icon" href="./images/logo/favicon.png">
+  <link rel="icon" href="./images/logo/favicon.png" type="image/x-icon">
   <title>Restaurant Apps Starter Project</title>
 </head>
 <body>
-  <a href="#main" id="skip-link" tabindex="0">Skip to Content</a>
-  <nav id="drawer" class="nav">
-    <p class="nav__title">Restaurant Apps</p>
-    <a href="#" id="hamburger">☰</a>
-    <ul class="nav__list">
-      <li class="nav__item"><a href="/">Home</a></li>
-      <li class="nav__item"><a href="#">Favorite</a></li>
-      <li class="nav__item"><a href="https://www.linkedin.com/in/dimasalfiansyah/" target="_blank" rel="noopener">About Us</a></li>
-    </ul>
-  </nav>
+  <button id="skip-link">Skip to Content</button>
+  <header class="app-bar">
+    <div class="app-bar__title">
+      <h2><a href="/">Restaurant App</a></h2>
+    </div>
+    <nav id="drawer" class="app-bar__navigation">
+      <ul>
+        <li><a href="#/home">Home</a></li>
+        <li><a href="#/favorite">Favorite</a></li>
+        <li><a href="https://www.linkedin.com/in/dimasalfiansyah/" target="_blank" rel="noopener">About Us</a></li>
+      </ul>
+    </nav>
+    <div class="app-bar__hamburger">
+      <button id="hamburger">☰</button>
+    </div>
+  </header>
   <div class="hero">
+    <picture>
+        <!-- 480px resolution image -->
+      <source media="(max-width: 600px)" type="image/webp" srcset="./images/heros/hero-image_2-small.webp">
+      <source media="(max-width: 600px)" type="image/jpeg" srcset="./images/heros/hero-image_2-small.jpg">
+
+      <!-- 800px resolution image -->
+      <source media="(min-width: 601px) and (max-width: 1000px)" type="image/webp" srcset="./images/heros/hero-image_2-medium.webp">
+      <source media="(min-width: 601px) and (max-width: 1000px)" type="image/jpeg" srcset="./images/heros/hero-image_2-medium.jpg">
+
+      <!-- 1000px resolution image -->
+      <source media="(min-width: 1001px)" type="image/webp" srcset="./images/heros/hero-image_2-large.webp">
+      <source media="(min-width: 1001px)" type="image/jpeg" srcset="./images/heros/hero-image_2-large.jpg">
+      <img src="./images/heros/hero-image_2.jpg" alt="" class="hero__image">
+    </picture>
     <div class="hero__inner">
       <h1 class="hero__title">The Best Restaurant from Sabang to Merauke</h1>
       <p class="hero__tagline">Let's enjoy the <span class="hero__underline">wonderful food</span> from our selected <span class="hero__selected">best restaurant</span></p>
     </div>
   </div>
-  <main id="main" tabindex="0">
-    <section class="content">
+  <main id="main">
+    <section class="content" id="content">
+      
       <article class="content__headline">
         <div class="headline__tagline">
           <h2 class="headline-tagline__title">Discover. Eat. Give a Star!</h2>
@@ -35,26 +61,32 @@
           <p class="headline-description__recommendation">Did you have recommendation? <button id="recommendation-button"> let's dig in! </button></p>
         </div>
       </article>
-      <article class="content__title">
-        <h2>List of Our Selection of the Best Restaurants</h2>
-        <p>Our selection is based on our survey of the restaurants you voted for us</p>
-      </article>
+      
+      <section class="content__utils">
+        <div class="search__box">
+          <form>
+            <input type="text" name="search" id="search__input" placeholder="search by name, category, or menu" title="search your favorite restaurant here">
+            <input type="submit" id="search__button" title="search button" value="">
+          </form>
+      </div>
       <div class="posts-button">
         <button title="button for make content as column" class="data" data-view="column" id="columnButton"></button>
         <button title="button for make content as list" class="data" data-view="list" id="listButton"></button>
       </div>
-      <!-- <div class="posts" id="posts">
-      </div> -->
-      <!-- <button id="testButton">Click</button> -->
-      <article id="content__item">
-        <restaurants-list></restaurants-list>
-      </article>
+      </section>
+      
+      <div id="content__item" tabindex="0">
+      </div>
     </section>
   </main>
-  <footer>
+  <footer id="footeree">
     <section class="footer__info">
       <div class="footer-info__logo">
-        <img src="./images/logo/logo.png" alt="Restaurant Apps Logo" class="footer-logo">
+        <picture>
+          <source srcset="./images/logo/logo.webp" type="image/webp">
+          <source srcset="./images/logo/logo.png" type="image/png">
+          <img src="./images/logo/logo.png" alt="Restaurant Apps Logo" class="footer-logo">
+        </picture>
       </div>
       <div class="footer-info__description">
         <p>Restaurant Apps</p>
